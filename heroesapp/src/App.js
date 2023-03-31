@@ -21,7 +21,7 @@ function App() {
       // const result = await axios(url, { headers: {'Authorization': + basicAuth}});
       const result = await axios(url);
       setData(result.data);
-      console.log(result.data[0].name)
+      console.log(result.data)
     };
 
     fetchData();

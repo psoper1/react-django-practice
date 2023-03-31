@@ -1,7 +1,11 @@
 function HomePage({data}) {
 
-  let hero_call = data.filter((hero) => hero.name.includes('Superman'))
-  console.log(hero_call.name)
+  console.log(data)
+
+  let hero_call = data.filter((hero) => hero.name.includes('Hulk'))
+  // console.log(hero_call.name)
+
+  // if (data.length === 0) return null
    
 
     return (
