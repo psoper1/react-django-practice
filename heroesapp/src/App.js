@@ -1,35 +1,31 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import HomePage from './HomePage';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-let url = 'https://8000-psoper1-djangopractice-qid21b643sn.ws-us93.gitpod.io/api/heroes/';
-// let username = 'admin';
-// let password = 'dataandyar';
-// let credentials = btoa(username + ':' + password);
-// let basicAuth = 'Basic ' + credentials;
-
+const url = 'https://8000-psoper1-djangopractice-qid21b643sn.ws-us93.gitpod.io/api/heroes/';
 
 function App() {
-  const [data, setData] = useState( [] );
+  const [data, setData] = useState([]);
+  const [view, setView] = useState('null')
 
   useEffect(() => {
     const fetchData = async () => {
-      // auth: {
-      //   username: uname,
-      //   password: pass
-      // }
-      // const result = await axios(url, { headers: {'Authorization': + basicAuth}});
       const result = await axios(url);
+
       setData(result.data);
-      console.log(result.data)
+      console.log('In Axios Call')
+      // console.log(result)
     };
 
     fetchData();
   }, []);
 
+  // if (data.length === 0) return null
+
   return (
     <>
-      <HomePage data={data} />
+      <HomePage data={data} view={view} setView={setView}/>
     </>
   );
 }
